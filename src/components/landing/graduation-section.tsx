@@ -58,7 +58,7 @@ function WordReveal({
           className="inline-block"
           initial={{ opacity: 0, y: 36 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.01 }}
           transition={{
             duration: 0.55,
             delay: delay + index * 0.03,
@@ -75,7 +75,7 @@ function WordReveal({
 
 export function GraduationSection() {
   return (
-    <section className="graduation-section relative scroll-mt-28 overflow-hidden py-[140px]">
+    <section className="graduation-section relative scroll-mt-28 overflow-x-clip py-16 sm:py-20 md:py-24 lg:py-[140px]">
       <div
         className="graduation-hero-bg pointer-events-none absolute inset-0"
         aria-hidden="true"
@@ -111,13 +111,13 @@ export function GraduationSection() {
         ))}
       </div>
 
-      <div className="relative mx-auto flex w-full max-w-[1400px] flex-col items-center justify-center px-8 text-center">
+      <div className="relative mx-auto flex w-full max-w-[1400px] flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
         <motion.span
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           variants={cinematicReveal(0.1)}
-          className="graduation-badge mb-12 inline-flex items-center justify-center rounded-full border border-orange-500/[0.18] bg-orange-500/[0.08] px-7 py-3 text-xs font-semibold tracking-[0.22em] text-orange-300 uppercase backdrop-blur-[12px]"
+          className="graduation-badge mb-8 inline-flex max-w-full items-center justify-center rounded-full border border-orange-500/[0.18] bg-orange-500/[0.08] px-5 py-3 text-center text-[10px] font-semibold tracking-[0.16em] text-orange-300 uppercase backdrop-blur-[12px] sm:px-7 sm:text-xs sm:tracking-[0.22em] lg:mb-12"
         >
           By Graduation
         </motion.span>
@@ -161,7 +161,7 @@ export function GraduationSection() {
               transition: { staggerChildren: 0.06, delayChildren: 0.25 },
             },
           }}
-          className="grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          className="center-orphan-cards center-orphan-cards-3 grid w-full grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
           {GRADUATION_BUILDS.map((item) => (
             <motion.div

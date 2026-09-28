@@ -213,7 +213,7 @@ export function WhoShouldJoinSection() {
         ))}
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1600px] px-6 md:px-10 lg:px-12">
+      <div className="relative z-10 mx-auto w-full max-w-[1600px] px-4 sm:px-6 md:px-10 lg:px-12">
         <FadeUp className="mx-auto max-w-[900px] text-center">
           <SectionLabel>Who Should Join</SectionLabel>
           <h2 className="text-3xl font-black tracking-tight text-white md:text-4xl lg:text-5xl">
@@ -238,11 +238,11 @@ export function WhoShouldJoinSection() {
           <h3 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
             No Matter Your Background, You Can Build With AI.
           </h3>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <GlowButton variant="primary" modalAction="enroll">
+          <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
+            <GlowButton variant="primary" modalAction="enroll" className="w-full sm:w-auto">
               Join Cohort
             </GlowButton>
-            <GlowButton variant="secondary" modalAction="brochure">
+            <GlowButton variant="secondary" modalAction="brochure" className="w-full sm:w-auto">
               Download Brochure
             </GlowButton>
           </div>

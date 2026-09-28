@@ -114,7 +114,7 @@ export function WhyProgramSection() {
           </p>
         </FadeUp>
 
-        <StaggerGrid className="mt-12 grid gap-6 md:grid-cols-3">
+        <StaggerGrid className="mt-10 grid grid-cols-1 items-stretch gap-4 sm:mt-12 sm:gap-6 md:grid-cols-3">
           {WHY_CARDS.map(({ icon: Icon, title }) => (
             <StaggerItem key={title}>
               <GlassCard className="h-full">
@@ -137,7 +137,7 @@ export function WhyChooseSection() {
           <SectionLabel>Why NeuralVarsity</SectionLabel>
           <SectionTitle>WHY CHOOSE NEURALVARSITY</SectionTitle>
         </FadeUp>
-        <StaggerGrid className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerGrid className="mt-10 grid grid-cols-1 items-stretch gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {WHY_CHOOSE.map(({ icon: Icon, title, desc }) => (
             <StaggerItem key={title}>
               <GlassCard className="h-full">
@@ -163,7 +163,7 @@ export function ToolsSection() {
   return (
     <Section className="overflow-hidden border-y border-orange-500/10 bg-orange-500/[0.03]">
       <div className="mx-auto max-w-7xl">
-        <FadeUp className="px-4 md:px-8">
+        <FadeUp>
           <div id="tools" className="scroll-mt-28">
             <SectionLabel>Tech Stack</SectionLabel>
             <SectionTitle>Master the Complete Agentic AI Tech Stack</SectionTitle>
@@ -179,7 +179,7 @@ export function ToolsSection() {
           <Marquee items={MARQUEE_ROW_2} direction="left" speed={50} />
         </div>
 
-        <StaggerGrid className="mt-12 flex flex-wrap justify-center gap-x-5 gap-y-4 px-4 md:gap-x-6 md:gap-y-5">
+        <StaggerGrid className="mt-10 flex flex-wrap justify-center gap-x-3 gap-y-3 sm:mt-12 sm:gap-x-5 sm:gap-y-4 md:gap-x-6 md:gap-y-5">
           {TOOL_BADGES.map((badge) => (
             <StaggerItem key={badge} className="shrink-0">
               <span className="inline-flex whitespace-nowrap rounded-full border border-white/10 bg-gradient-to-r from-orange-500/10 to-amber-500/5 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">
@@ -326,7 +326,7 @@ export function MarketSection() {
           <SectionLabel>Market Opportunity</SectionLabel>
           <SectionTitle>THE AI AUTOMATION ECONOMY IS BOOMING</SectionTitle>
         </FadeUp>
-        <StaggerGrid className="mt-12 grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <StaggerGrid className="center-orphan-cards mt-10 grid grid-cols-1 items-stretch gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {marketCards.map(({ key, stat, description }) => (
             <StaggerItem key={key} className="h-full">
               <GlassCard className="flex h-full min-h-[220px] flex-col items-center justify-center p-6 text-center md:min-h-[240px] md:p-8">
@@ -353,7 +353,7 @@ export function DifferentiatorsSection() {
           <SectionLabel>Why Us</SectionLabel>
           <SectionTitle>WHAT MAKES THIS PROGRAM DIFFERENT</SectionTitle>
         </FadeUp>
-        <StaggerGrid className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <StaggerGrid className="mt-10 grid grid-cols-1 items-stretch gap-3 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {PROGRAM_DIFFERENTIATORS.map((item) => (
             <StaggerItem key={item}>
               <div className="flex items-center gap-3 rounded-xl border border-orange-500/15 bg-orange-500/[0.05] px-4 py-3">
@@ -392,9 +392,9 @@ export function FAQSection() {
                 <button
                   type="button"
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="flex w-full items-center justify-between px-6 py-4 text-left"
+                  className="flex min-h-12 w-full items-center justify-between gap-3 px-4 py-4 text-left sm:px-6"
                 >
-                  <span className="pr-4 font-medium text-zinc-200">{faq.q}</span>
+                  <span className="min-w-0 flex-1 text-sm font-medium break-words text-zinc-200 sm:text-base">{faq.q}</span>
                   <ChevronDown
                     className={`size-5 shrink-0 text-orange-400 transition-transform ${
                       open === i ? "rotate-180" : ""
@@ -410,7 +410,7 @@ export function FAQSection() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <p className="border-t border-white/5 px-6 py-4 text-sm leading-relaxed text-zinc-400">
+                      <p className="border-t border-white/5 px-4 py-4 text-sm leading-relaxed break-words text-zinc-400 sm:px-6">
                         {faq.a}
                       </p>
                     </motion.div>
@@ -444,14 +444,14 @@ export function FinalCTASection() {
             Become job-ready as an Agentic AI Professional by building real
             systems that companies and clients actually need.
           </SectionSubtitle>
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
-            <GlowButton variant="primary" modalAction="enroll">
+          <div className="mt-10 flex w-full flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+            <GlowButton variant="primary" modalAction="enroll" className="w-full sm:w-auto">
               Enroll in Cohort
             </GlowButton>
-            <GlowButton variant="secondary" modalAction="enroll">
+            <GlowButton variant="secondary" modalAction="enroll" className="w-full sm:w-auto">
               Book Free AI Masterclass
             </GlowButton>
-            <GlowButton variant="ghost" href={WHATSAPP_BOOKING_URL} className="gap-2">
+            <GlowButton variant="ghost" href={WHATSAPP_BOOKING_URL} className="w-full gap-2 sm:w-auto">
               <WhatsAppIcon className="size-4 text-[#25D366]" />
               Talk on WhatsApp
             </GlowButton>

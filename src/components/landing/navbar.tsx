@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useLenis } from "lenis/react"
 import { Menu, X } from "lucide-react"
@@ -11,10 +11,14 @@ import { cn } from "@/lib/utils"
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const scrolledRef = useRef(false)
   const lenis = useLenis()
 
   useLenis(({ scroll }) => {
-    setScrolled(scroll > 20)
+    const next = scroll > 20
+    if (scrolledRef.current === next) return
+    scrolledRef.current = next
+    setScrolled(next)
   })
 
   useEffect(() => {
@@ -36,14 +40,14 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 transform-gpu",
+          "fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)] transition-[background-color,border-color,backdrop-filter] duration-300 transform-gpu",
           scrolled
             ? "border-b border-white/10 bg-[#030303]/80 backdrop-blur-md"
             : "bg-transparent"
         )}
       >
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:h-20 md:px-8">
-          <a href="#home" className="group flex items-center gap-2.5 md:gap-3">
+        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 md:h-20 md:px-8">
+          <a href="#home" className="group flex min-w-0 items-center gap-2.5 md:gap-3 lg:shrink-0">
             <img
               src="/brand/nv-logo-updated.png"
               alt=""
@@ -52,17 +56,17 @@ export function Navbar() {
               height={40}
               className="size-9 shrink-0 object-contain md:size-10"
             />
-            <div className="flex flex-col">
-              <span className="font-brand text-lg font-bold tracking-tight text-white md:text-xl">
+            <div className="flex min-w-0 flex-col lg:min-w-max">
+              <span className="truncate font-brand text-base font-bold tracking-tight text-white min-[380px]:text-lg md:text-xl lg:overflow-visible lg:text-clip">
                 NeuralVarsity
               </span>
-              <span className="text-[10px] tracking-widest text-zinc-300 uppercase md:text-xs">
+              <span className="truncate text-[9px] tracking-[0.14em] text-zinc-300 uppercase min-[380px]:text-[10px] min-[380px]:tracking-widest md:text-xs lg:overflow-visible lg:text-clip">
                 AI Agents & Automation
               </span>
             </div>
           </a>
 
-          <div className="hidden items-center gap-8 lg:flex">
+          <div className="hidden items-center gap-4 lg:flex xl:gap-8">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
@@ -74,7 +78,7 @@ export function Navbar() {
             ))}
           </div>
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-3 lg:flex">
             <GlowButton variant="ghost" modalAction="enroll" className="!px-5 !py-2.5 !text-sm">
               Book Free Masterclass
             </GlowButton>
@@ -86,7 +90,7 @@ export function Navbar() {
           <button
             type="button"
             aria-label="Toggle menu"
-            className="rounded-lg border border-white/10 p-2 text-zinc-300 lg:hidden"
+            className="inline-flex size-11 shrink-0 items-center justify-center rounded-lg border border-white/10 text-zinc-300 lg:hidden"
             onClick={() => setMobileOpen((v) => !v)}
           >
             {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -108,7 +112,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.35, ease: "easeOut" }}
-              className="flex h-full flex-col px-6 pt-24 pb-8"
+              className="flex h-full flex-col overflow-y-auto px-6 pt-[calc(6rem+env(safe-area-inset-top))] pb-[max(2rem,env(safe-area-inset-bottom))]"
             >
               <div className="flex flex-col gap-6">
                 {NAV_LINKS.map((link) => (

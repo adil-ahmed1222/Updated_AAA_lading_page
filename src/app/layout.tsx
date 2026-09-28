@@ -56,7 +56,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} h-full dark`}
     >
-      <body className="min-h-full overflow-x-hidden antialiased">
+      <body className="min-h-full max-w-full overflow-x-clip antialiased">
         <MetaPixel />
         <SmoothScrollProvider>
           <LeadChannelCapture />

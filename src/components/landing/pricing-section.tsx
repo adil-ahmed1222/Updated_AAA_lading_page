@@ -25,7 +25,7 @@ const PRICING_PARTICLES = Array.from({ length: 12 }, (_, i) => ({
 
 export function PricingSection() {
   return (
-    <section className="relative overflow-hidden px-6 py-[100px]">
+    <section className="relative overflow-x-clip px-4 py-16 sm:px-6 sm:py-20 lg:py-[100px]">
       <div className="pricing-hero-bg pointer-events-none absolute inset-0" aria-hidden="true" />
       <div className="pricing-hero-orb pointer-events-none absolute top-1/2 left-1/2 size-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/20 blur-[120px]" aria-hidden="true" />
       <div className="pricing-hero-streak pointer-events-none absolute top-[28%] left-1/4 h-px w-1/3 -rotate-6 bg-gradient-to-r from-transparent via-orange-500/25 to-transparent" aria-hidden="true" />
@@ -107,12 +107,12 @@ export function PricingSection() {
           <motion.div
             whileHover={{ y: -4, scale: 1.01 }}
             transition={{ duration: 0.3, ease: revealEase }}
-            className="pricing-card gradient-border relative overflow-hidden rounded-[32px] border border-orange-500/20 p-8 text-center shadow-[0_0_60px_-12px_rgba(255,140,0,0.35)] backdrop-blur-[20px] md:p-10"
+            className="pricing-card gradient-border relative mx-auto w-full overflow-hidden rounded-[28px] border border-orange-500/20 p-5 text-center shadow-[0_0_60px_-12px_rgba(255,140,0,0.35)] backdrop-blur-[20px] sm:rounded-[32px] sm:p-8 md:p-10"
           >
             <p className="text-lg text-zinc-500 line-through md:text-xl">₹49,999</p>
 
             <div className="mt-6 rounded-2xl border border-amber-500/25 bg-amber-500/10 px-6 py-5">
-              <p className="text-5xl font-bold tracking-tight text-white md:text-6xl">
+              <p className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
                 ₹14,999
               </p>
             </div>

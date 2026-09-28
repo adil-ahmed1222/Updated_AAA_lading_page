@@ -29,7 +29,7 @@ export function LandingPage() {
     <AppLoadingProvider>
       <ModalProvider>
         <Navbar />
-        <main className="relative overflow-x-hidden bg-[#030303]">
+        <main className="relative overflow-x-clip bg-[#030303]">
           <Hero />
           <WhyProgramSection />
           <WhyChooseSection />

@@ -127,13 +127,13 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="projects-showcase-section relative w-full overflow-hidden border-t border-orange-500/10 bg-[#030303] pt-[120px] pb-[120px]"
+      className="projects-showcase-section relative w-full overflow-x-clip border-t border-orange-500/10 bg-[#030303] px-4 py-16 sm:px-5 sm:py-20 md:px-10 md:py-24 lg:px-12 lg:py-[120px]"
     >
       <div className="projects-showcase-ambient pointer-events-none absolute inset-0" />
       {PARTICLES.map((particle, index) => (
         <span
           key={index}
-          className="projects-showcase-star pointer-events-none absolute rounded-full bg-[rgba(249,115,22,0.45)]"
+          className="projects-showcase-star pointer-events-none absolute rounded-full bg-[rgba(249,115,22,0.45)] max-lg:hidden"
           style={{
             left: particle.left,
             top: particle.top,
@@ -144,7 +144,7 @@ export function ProjectsSection() {
         />
       ))}
 
-      <div className="relative z-10 mx-auto max-w-[1600px] px-6 md:px-10 lg:px-12">
+      <div className="relative z-10 mx-auto w-full max-w-[1600px]">
         <FadeUp>
           <SectionLabel>PROJECT PORTFOLIO</SectionLabel>
           <SectionTitle>BUILD REAL AI PRODUCTS.</SectionTitle>

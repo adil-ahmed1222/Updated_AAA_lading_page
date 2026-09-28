@@ -45,7 +45,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-x-hidden bg-[#030303] pt-20 md:pt-24"
+      className="relative min-h-[100svh] overflow-x-clip bg-[#030303] pt-[calc(5rem+env(safe-area-inset-top))] md:pt-24"
     >
       {/* Layer 1: Animated Shader Background */}
       <AnimatedShaderHero className="z-0" intensity={intensity} />
@@ -59,13 +59,13 @@ export function Hero() {
       </div>
 
       {/* Layer 4: Hero content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 lg:px-8 lg:py-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:py-12 lg:px-8 lg:py-20">
         <div className="flex w-full max-w-3xl flex-col">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mb-6 inline-flex w-fit flex-col gap-1 rounded-full border border-orange-500/25 bg-orange-500/10 px-4 py-2 sm:flex-row sm:items-center sm:gap-3 sm:px-5"
+            className="mb-6 inline-flex w-fit max-w-full flex-col gap-1 rounded-full border border-orange-500/25 bg-orange-500/10 px-4 py-2 sm:flex-row sm:items-center sm:gap-3 sm:px-5"
           >
             <span className="flex items-center gap-2 text-sm font-medium text-orange-200">
               <Rocket className="size-4 text-orange-400" />
@@ -151,16 +151,16 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.6 }}
-            className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
+            className="mt-10 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap"
           >
-            <GlowButton variant="primary" modalAction="enroll">
+            <GlowButton variant="primary" modalAction="enroll" className="w-full sm:w-auto">
               Enroll in Cohort
             </GlowButton>
-            <GlowButton variant="secondary" modalAction="brochure">
-              <Download className="mr-2 size-4" />
+            <GlowButton variant="secondary" modalAction="brochure" className="w-full sm:w-auto">
+              <Download className="mr-2 size-4 shrink-0" />
               Download Brochure
             </GlowButton>
-            <GlowButton variant="ghost" modalAction="enroll">
+            <GlowButton variant="ghost" modalAction="enroll" className="w-full sm:w-auto">
               <Calendar className="mr-2 size-4" />
               Book Free AI Masterclass
             </GlowButton>

@@ -41,7 +41,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "relative scroll-mt-28 px-4 py-[120px] md:px-8 lg:px-12",
+        "relative scroll-mt-28 overflow-x-clip px-4 py-16 sm:px-5 sm:py-20 md:px-8 md:py-24 lg:px-12 lg:py-[120px]",
         className
       )}
     >
@@ -101,7 +101,7 @@ export function StaggerItem({
   children: React.ReactNode
 }) {
   return (
-    <motion.div variants={fadeUp} className={className}>
+    <motion.div variants={fadeUp} className={cn("h-full min-w-0", className)}>
       {children}
     </motion.div>
   )
@@ -117,7 +117,7 @@ export function GlassCard({
   return (
     <div
       className={cn(
-        "glass-card gradient-border rounded-2xl p-6 transition-[border-color,transform] duration-300 hover:border-orange-500/40",
+        "glass-card gradient-border h-full w-full min-w-0 rounded-2xl p-5 transition-[border-color,transform] duration-300 hover:border-orange-500/40 sm:p-6",
         className
       )}
     >
@@ -189,7 +189,7 @@ export function GlowButton({
 }) {
   const modals = useLandingModalsOptional()
   const base =
-    "relative inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-[transform,opacity] duration-300 md:px-8 md:py-3.5 md:text-base"
+    "relative inline-flex max-w-full items-center justify-center rounded-full px-6 py-3 text-center text-sm font-semibold transition-[transform,opacity] duration-300 max-md:min-h-11 md:px-8 md:py-3.5 md:text-base"
 
   const variants = {
     primary:

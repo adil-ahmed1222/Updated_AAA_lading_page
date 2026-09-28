@@ -139,15 +139,20 @@ export function CareerOutcomesCarousel({
     }
 
     mm.add("(min-width: 1024px)", () => buildScrollTrigger(1, 1))
-    mm.add("(max-width: 1023px)", () => buildScrollTrigger(0.72, 0.85))
 
     return () => mm.revert()
   }, [getScrollDistance, measure, sectionRef, setScrollProgress])
 
   return (
+    <>
+    <div className="mx-auto grid w-full max-w-[1100px] grid-cols-1 items-stretch justify-items-stretch gap-4 sm:grid-cols-2 sm:gap-5 lg:hidden">
+      {CAREER_OUTCOMES.map((career) => (
+        <CareerCarouselCard key={career.title} career={career} />
+      ))}
+    </div>
     <div
       ref={rootRef}
-      className="career-carousel relative mx-auto w-full max-w-[1600px]"
+      className="career-carousel relative mx-auto hidden w-full max-w-[1600px] lg:block"
       aria-roledescription="carousel"
       aria-label="Career outcome paths"
     >
@@ -174,5 +179,6 @@ export function CareerOutcomesCarousel({
         Scroll to explore all career paths
       </p>
     </div>
+    </>
   )
 }

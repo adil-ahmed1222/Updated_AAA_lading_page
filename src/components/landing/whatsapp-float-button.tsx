@@ -14,7 +14,7 @@ export function WhatsAppFloatButton() {
       initial={{ opacity: 0, scale: 0.85 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
-      className="fixed right-6 bottom-6 z-40 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_4px_28px_rgba(37,211,102,0.45)] transition-transform hover:scale-105 md:right-8 md:bottom-8"
+      className="fixed right-[max(1rem,env(safe-area-inset-right))] bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_4px_28px_rgba(37,211,102,0.45)] transition-transform hover:scale-105 md:right-8 md:bottom-8"
     >
       <WhatsAppIcon className="size-7" />
     </motion.a>

@@ -26,13 +26,13 @@ export function CareerOutcomesSection() {
       id="careers"
       className="career-outcomes-scroll-section relative scroll-mt-28 overflow-hidden border-t border-white/5"
     >
-      <div className="career-outcomes-pin-panel flex h-screen w-full flex-col justify-center overflow-hidden px-4 md:px-8 lg:px-12">
+      <div className="career-outcomes-pin-panel relative flex w-full flex-col overflow-x-clip px-4 py-16 sm:px-5 sm:py-20 md:px-8 md:py-24 lg:h-screen lg:justify-center lg:overflow-hidden lg:px-12 lg:py-0">
         <div className="career-outcomes-ambient pointer-events-none absolute inset-0" />
 
         {PARTICLES.map((particle, index) => (
           <span
             key={index}
-            className="career-outcomes-particle"
+            className="career-outcomes-particle max-lg:hidden"
             style={{
               left: particle.left,
               top: particle.top,

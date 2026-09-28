@@ -72,7 +72,7 @@ export const MasterclassScheduler = memo(function MasterclassScheduler({
           Slots available for the next {MASTERCLASS_BOOKING_WINDOW_DAYS} days.
         </p>
 
-        <div className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-7">
+        <div className="mt-3 grid grid-cols-3 gap-2 min-[420px]:grid-cols-4 sm:grid-cols-7">
           {days.map((day) => {
             const isSelected = day.iso === selectedDate
             return (
@@ -82,7 +82,7 @@ export const MasterclassScheduler = memo(function MasterclassScheduler({
                 onClick={() => onDateChange(day.iso)}
                 aria-pressed={isSelected}
                 className={cn(
-                  "flex flex-col items-center rounded-xl border px-1 py-2 transition-colors",
+                  "flex min-h-14 min-w-0 flex-col items-center justify-center rounded-xl border px-1 py-2 text-center transition-colors",
                   isSelected
                     ? "border-orange-500/70 bg-orange-500/20 shadow-[0_0_16px_-4px_rgba(255,140,0,0.6)]"
                     : "border-white/10 bg-white/[0.03] hover:border-orange-500/40 hover:bg-orange-500/10",
@@ -90,7 +90,7 @@ export const MasterclassScheduler = memo(function MasterclassScheduler({
               >
                 <span
                   className={cn(
-                    "text-[10px] font-medium uppercase tracking-wide",
+                    "max-w-full text-[10px] font-medium uppercase tracking-normal sm:tracking-wide",
                     isSelected ? "text-orange-300" : "text-zinc-500",
                   )}
                 >

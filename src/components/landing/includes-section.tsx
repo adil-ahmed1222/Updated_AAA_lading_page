@@ -108,7 +108,7 @@ function getHorizontalDistance(track: HTMLElement, viewport: HTMLElement) {
 function SectionHeader({ animated = true }: { animated?: boolean }) {
   if (!animated) {
     return (
-      <header className="includes-section-header mx-auto w-full max-w-[850px] shrink-0 px-8 text-center">
+      <header className="includes-section-header mx-auto w-full max-w-[850px] shrink-0 px-4 text-center sm:px-8">
         <span className="mb-4 inline-flex items-center rounded-full border border-orange-500/25 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold tracking-[0.2em] text-orange-300 uppercase">
           Program Includes
         </span>
@@ -125,7 +125,7 @@ function SectionHeader({ animated = true }: { animated?: boolean }) {
   }
 
   return (
-    <header className="includes-section-header mx-auto mb-[100px] w-full max-w-[850px] px-8 text-center">
+    <header className="includes-section-header mx-auto mb-10 w-full max-w-[850px] px-4 text-center sm:px-8 lg:mb-[100px]">
       <motion.span
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -165,7 +165,7 @@ function IncludeCard({ item }: { item: IncludeItem }) {
   return (
     <article
       className={cn(
-        "program-include-slide-card group relative flex h-auto min-h-[260px] w-[85vw] max-w-[380px] shrink-0 flex-col overflow-hidden rounded-[32px] border border-orange-500/30 p-8 lg:h-[260px] lg:w-[380px] lg:min-w-[380px]",
+        "program-include-slide-card group relative flex h-auto min-h-[260px] w-[calc(100vw-2.5rem)] max-w-[380px] shrink-0 flex-col overflow-hidden rounded-[28px] border border-orange-500/30 p-5 sm:rounded-[32px] sm:p-8 lg:h-[260px] lg:w-[380px] lg:min-w-[380px] lg:max-w-none lg:p-8",
         item.featured && "program-include-card-featured"
       )}
     >

@@ -2,7 +2,7 @@
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black px-4 py-16 md:px-8">
+    <footer className="border-t border-white/10 bg-black px-4 py-12 pb-[max(3rem,env(safe-area-inset-bottom))] sm:py-16 md:px-8">
       <div className="mx-auto max-w-7xl text-center md:text-left">
         <div className="flex items-center justify-center gap-2.5 md:justify-start md:gap-3">
           <img

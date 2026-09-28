@@ -123,9 +123,20 @@
   );
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .career-carousel {
     --career-slide-w: min(300px, 88vw);
+  }
+
+  .career-outcome-card {
+    width: 100%;
+    height: auto;
+    min-height: 280px;
+  }
+
+  .career-outcome-skill {
+    white-space: normal;
+    text-align: center;
   }
 }
 

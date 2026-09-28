@@ -102,10 +102,6 @@ function LenisScrollTriggerBridge() {
       lenis.resize()
     }
 
-    const onMobileViewportChange = () => {
-      syncLayout()
-    }
-
     const onPageShow = (event: PageTransitionEvent) => {
       ScrollTrigger.clearScrollMemory()
       syncLayout()
@@ -126,8 +122,7 @@ function LenisScrollTriggerBridge() {
 
     window.addEventListener("load", syncLayout)
     window.addEventListener("pageshow", onPageShow)
-    window.addEventListener("orientationchange", onMobileViewportChange)
-    window.visualViewport?.addEventListener("resize", onMobileViewportChange)
+    window.addEventListener("orientationchange", syncLayout)
     void document.fonts?.ready?.then(syncLayout)
 
     return () => {
@@ -136,8 +131,7 @@ function LenisScrollTriggerBridge() {
       window.clearTimeout(t3)
       window.removeEventListener("load", syncLayout)
       window.removeEventListener("pageshow", onPageShow)
-      window.removeEventListener("orientationchange", onMobileViewportChange)
-      window.visualViewport?.removeEventListener("resize", onMobileViewportChange)
+      window.removeEventListener("orientationchange", syncLayout)
       lenis.off("scroll", ScrollTrigger.update)
       ScrollTrigger.removeEventListener("refresh", onRefresh)
     }
@@ -178,11 +172,10 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
         duration: 1.2,
         smoothWheel: true,
         wheelMultiplier: 0.9,
-        touchMultiplier: 1.2,
-        syncTouchLerp: 0.05,
+        touchMultiplier: 1,
         infinite: false,
         autoResize: true,
-        syncTouch: true,
+        syncTouch: false,
         lerp: 0.1,
       }}
     >

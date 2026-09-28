@@ -163,6 +163,15 @@
 }
 
 @media (max-width: 767px) {
+  .who-join-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .who-join-track {
+    gap: 16px;
+  }
+
   .who-join-track-top {
     animation-duration: 34s;
   }
@@ -172,7 +181,25 @@
   }
 
   .who-join-fade {
-    width: 48px;
+    width: 32px;
+  }
+
+  .who-join-card {
+    width: min(270px, calc(100vw - 2rem));
+    min-width: min(270px, calc(100vw - 2rem));
+    max-width: min(270px, calc(100vw - 2rem));
+  }
+
+  .who-join-particle,
+  .who-join-streak {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .who-join-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 }
 
@@ -484,5 +511,13 @@
   .who-join-particle,
   .who-join-streak {
     animation: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .who-join-card {
+    width: min(270px, calc(100vw - 2rem));
+    min-width: min(270px, calc(100vw - 2rem));
+    max-width: min(270px, calc(100vw - 2rem));
   }
 }
